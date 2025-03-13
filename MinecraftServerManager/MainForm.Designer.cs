@@ -30,30 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             mainMrPanel = new Aeat.MrPanel();
-            consoleMrPanel = new Aeat.MrPanel();
-            statusLabel = new Label();
-            maxRAMMBLabel = new Label();
-            minRAMMBLabel = new Label();
-            dotJarLabel = new Label();
-            maxRAMLabel = new Label();
-            minRAMLabel = new Label();
-            serverNameLabel = new Label();
-            maxRAMTextBox = new TextBox();
-            minRAMTextBox = new TextBox();
-            sendPictureBox = new PictureBox();
-            serverFileNameTextBox = new TextBox();
-            sendCommandTextBox = new TextBox();
-            stopMrButton = new Aeat.MrButton();
-            restartMrButton = new Aeat.MrButton();
-            startMrButton = new Aeat.MrButton();
-            consoleRichTextBox = new RichTextBox();
-            customizeMrPanel = new Aeat.MrPanel();
-            loadMrButton = new Aeat.MrButton();
-            saveMrButton = new Aeat.MrButton();
-            changeFontLabel = new Label();
-            changeColorLabel = new Label();
-            changeFontMrButton = new Aeat.MrButton();
-            changeColorMrButton = new Aeat.MrButton();
             fileManagerMrPanel = new Aeat.MrPanel();
             fileListMrPanel = new Aeat.MrPanel();
             changeColorPictureBox = new PictureBox();
@@ -83,6 +59,34 @@
             serverStatusLogLabel = new Label();
             serverStatusLabel = new Label();
             serverStatusUnderMrPanel = new Aeat.MrPanel();
+            customizeMrPanel = new Aeat.MrPanel();
+            loadMrButton = new Aeat.MrButton();
+            saveMrButton = new Aeat.MrButton();
+            changeFontLabel = new Label();
+            changeAppsHoverCardSLabel = new Label();
+            changeAppsBackgroundColorLabel = new Label();
+            changeBorderColorLabel = new Label();
+            changeFontMrButton = new Aeat.MrButton();
+            changeHoverCardColorMrButton = new Aeat.MrButton();
+            changeBackgroundColorMrButton = new Aeat.MrButton();
+            changeColorMrButton = new Aeat.MrButton();
+            consoleMrPanel = new Aeat.MrPanel();
+            statusLabel = new Label();
+            maxRAMMBLabel = new Label();
+            minRAMMBLabel = new Label();
+            dotJarLabel = new Label();
+            maxRAMLabel = new Label();
+            minRAMLabel = new Label();
+            serverNameLabel = new Label();
+            maxRAMTextBox = new TextBox();
+            minRAMTextBox = new TextBox();
+            sendPictureBox = new PictureBox();
+            serverFileNameTextBox = new TextBox();
+            sendCommandTextBox = new TextBox();
+            stopMrButton = new Aeat.MrButton();
+            restartMrButton = new Aeat.MrButton();
+            startMrButton = new Aeat.MrButton();
+            consoleRichTextBox = new RichTextBox();
             versionLabel = new Label();
             topMostMrCheckBox = new Aeat.MrCheckBox();
             navigationBarMrPanel = new Aeat.MrPanel();
@@ -98,9 +102,6 @@
             minimizePictureBox = new PictureBox();
             closePictureBox = new PictureBox();
             mainMrPanel.SuspendLayout();
-            consoleMrPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)sendPictureBox).BeginInit();
-            customizeMrPanel.SuspendLayout();
             fileManagerMrPanel.SuspendLayout();
             fileListMrPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)changeColorPictureBox).BeginInit();
@@ -114,6 +115,9 @@
             memoryUsageMrPanel.SuspendLayout();
             CPUUsageMrPanel.SuspendLayout();
             serverStatusMrPanel.SuspendLayout();
+            customizeMrPanel.SuspendLayout();
+            consoleMrPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)sendPictureBox).BeginInit();
             navigationBarMrPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)minimizePictureBox).BeginInit();
             ((System.ComponentModel.ISupportInitialize)closePictureBox).BeginInit();
@@ -125,9 +129,9 @@
             mainMrPanel.BorderColor = Color.FromArgb(5, 222, 5);
             mainMrPanel.BorderThickness = 2;
             mainMrPanel.Controls.Add(consoleMrPanel);
-            mainMrPanel.Controls.Add(customizeMrPanel);
             mainMrPanel.Controls.Add(fileManagerMrPanel);
             mainMrPanel.Controls.Add(dashboardMrPanel);
+            mainMrPanel.Controls.Add(customizeMrPanel);
             mainMrPanel.Controls.Add(versionLabel);
             mainMrPanel.Controls.Add(topMostMrCheckBox);
             mainMrPanel.Controls.Add(navigationBarMrPanel);
@@ -137,369 +141,6 @@
             mainMrPanel.Name = "mainMrPanel";
             mainMrPanel.Size = new Size(900, 580);
             mainMrPanel.TabIndex = 0;
-            // 
-            // consoleMrPanel
-            // 
-            consoleMrPanel.BackColor = Color.FromArgb(20, 20, 20);
-            consoleMrPanel.BorderColor = Color.FromArgb(5, 222, 5);
-            consoleMrPanel.BorderThickness = 2;
-            consoleMrPanel.Controls.Add(statusLabel);
-            consoleMrPanel.Controls.Add(maxRAMMBLabel);
-            consoleMrPanel.Controls.Add(minRAMMBLabel);
-            consoleMrPanel.Controls.Add(dotJarLabel);
-            consoleMrPanel.Controls.Add(maxRAMLabel);
-            consoleMrPanel.Controls.Add(minRAMLabel);
-            consoleMrPanel.Controls.Add(serverNameLabel);
-            consoleMrPanel.Controls.Add(maxRAMTextBox);
-            consoleMrPanel.Controls.Add(minRAMTextBox);
-            consoleMrPanel.Controls.Add(sendPictureBox);
-            consoleMrPanel.Controls.Add(serverFileNameTextBox);
-            consoleMrPanel.Controls.Add(sendCommandTextBox);
-            consoleMrPanel.Controls.Add(stopMrButton);
-            consoleMrPanel.Controls.Add(restartMrButton);
-            consoleMrPanel.Controls.Add(startMrButton);
-            consoleMrPanel.Controls.Add(consoleRichTextBox);
-            consoleMrPanel.CornerBorder = 20;
-            consoleMrPanel.Font = new Font("Segoe Print", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            consoleMrPanel.Location = new Point(12, 63);
-            consoleMrPanel.Name = "consoleMrPanel";
-            consoleMrPanel.Size = new Size(876, 475);
-            consoleMrPanel.TabIndex = 6;
-            // 
-            // statusLabel
-            // 
-            statusLabel.AutoSize = true;
-            statusLabel.ForeColor = Color.Red;
-            statusLabel.Location = new Point(288, 410);
-            statusLabel.Name = "statusLabel";
-            statusLabel.Size = new Size(67, 23);
-            statusLabel.TabIndex = 6;
-            statusLabel.Text = "OFFLINE";
-            // 
-            // maxRAMMBLabel
-            // 
-            maxRAMMBLabel.AutoSize = true;
-            maxRAMMBLabel.ForeColor = Color.White;
-            maxRAMMBLabel.Location = new Point(341, 441);
-            maxRAMMBLabel.Name = "maxRAMMBLabel";
-            maxRAMMBLabel.Size = new Size(32, 23);
-            maxRAMMBLabel.TabIndex = 5;
-            maxRAMMBLabel.Text = "MB";
-            // 
-            // minRAMMBLabel
-            // 
-            minRAMMBLabel.AutoSize = true;
-            minRAMMBLabel.ForeColor = Color.White;
-            minRAMMBLabel.Location = new Point(152, 441);
-            minRAMMBLabel.Name = "minRAMMBLabel";
-            minRAMMBLabel.Size = new Size(32, 23);
-            minRAMMBLabel.TabIndex = 5;
-            minRAMMBLabel.Text = "MB";
-            // 
-            // dotJarLabel
-            // 
-            dotJarLabel.AutoSize = true;
-            dotJarLabel.ForeColor = Color.White;
-            dotJarLabel.Location = new Point(237, 411);
-            dotJarLabel.Name = "dotJarLabel";
-            dotJarLabel.Size = new Size(32, 23);
-            dotJarLabel.TabIndex = 5;
-            dotJarLabel.Text = ".jar";
-            // 
-            // maxRAMLabel
-            // 
-            maxRAMLabel.AutoSize = true;
-            maxRAMLabel.Font = new Font("Segoe Print", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            maxRAMLabel.ForeColor = Color.White;
-            maxRAMLabel.Location = new Point(202, 440);
-            maxRAMLabel.Name = "maxRAMLabel";
-            maxRAMLabel.Size = new Size(77, 23);
-            maxRAMLabel.TabIndex = 4;
-            maxRAMLabel.Text = "Max RAM:";
-            // 
-            // minRAMLabel
-            // 
-            minRAMLabel.AutoSize = true;
-            minRAMLabel.Font = new Font("Segoe Print", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            minRAMLabel.ForeColor = Color.White;
-            minRAMLabel.Location = new Point(13, 440);
-            minRAMLabel.Name = "minRAMLabel";
-            minRAMLabel.Size = new Size(75, 23);
-            minRAMLabel.TabIndex = 4;
-            minRAMLabel.Text = "Min RAM:";
-            // 
-            // serverNameLabel
-            // 
-            serverNameLabel.AutoSize = true;
-            serverNameLabel.BackColor = Color.Transparent;
-            serverNameLabel.Font = new Font("Segoe Print", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            serverNameLabel.ForeColor = Color.White;
-            serverNameLabel.Location = new Point(13, 410);
-            serverNameLabel.Name = "serverNameLabel";
-            serverNameLabel.Size = new Size(100, 23);
-            serverNameLabel.TabIndex = 4;
-            serverNameLabel.Text = "Server Name:";
-            // 
-            // maxRAMTextBox
-            // 
-            maxRAMTextBox.BackColor = Color.FromArgb(20, 20, 20);
-            maxRAMTextBox.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            maxRAMTextBox.ForeColor = Color.White;
-            maxRAMTextBox.Location = new Point(283, 442);
-            maxRAMTextBox.MaxLength = 6;
-            maxRAMTextBox.Name = "maxRAMTextBox";
-            maxRAMTextBox.Size = new Size(55, 23);
-            maxRAMTextBox.TabIndex = 2;
-            maxRAMTextBox.KeyPress += MinRAMAndmaxRAMTextBox_KeyPress;
-            // 
-            // minRAMTextBox
-            // 
-            minRAMTextBox.BackColor = Color.FromArgb(20, 20, 20);
-            minRAMTextBox.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            minRAMTextBox.ForeColor = Color.White;
-            minRAMTextBox.Location = new Point(94, 442);
-            minRAMTextBox.MaxLength = 6;
-            minRAMTextBox.Name = "minRAMTextBox";
-            minRAMTextBox.Size = new Size(55, 23);
-            minRAMTextBox.TabIndex = 2;
-            minRAMTextBox.KeyPress += MinRAMAndmaxRAMTextBox_KeyPress;
-            // 
-            // sendPictureBox
-            // 
-            sendPictureBox.Image = Properties.Resources.paper_plane_30px;
-            sendPictureBox.Location = new Point(842, 376);
-            sendPictureBox.Name = "sendPictureBox";
-            sendPictureBox.Size = new Size(24, 24);
-            sendPictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
-            sendPictureBox.TabIndex = 3;
-            sendPictureBox.TabStop = false;
-            sendPictureBox.Click += SendPictureBox_Click;
-            // 
-            // serverFileNameTextBox
-            // 
-            serverFileNameTextBox.BackColor = Color.FromArgb(20, 20, 20);
-            serverFileNameTextBox.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            serverFileNameTextBox.ForeColor = Color.White;
-            serverFileNameTextBox.Location = new Point(119, 412);
-            serverFileNameTextBox.Name = "serverFileNameTextBox";
-            serverFileNameTextBox.Size = new Size(116, 23);
-            serverFileNameTextBox.TabIndex = 2;
-            // 
-            // sendCommandTextBox
-            // 
-            sendCommandTextBox.BackColor = Color.FromArgb(20, 20, 20);
-            sendCommandTextBox.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            sendCommandTextBox.ForeColor = Color.White;
-            sendCommandTextBox.Location = new Point(13, 376);
-            sendCommandTextBox.Name = "sendCommandTextBox";
-            sendCommandTextBox.Size = new Size(823, 23);
-            sendCommandTextBox.TabIndex = 2;
-            sendCommandTextBox.KeyDown += SendCommandTextBox_KeyDown;
-            // 
-            // stopMrButton
-            // 
-            stopMrButton.BackColor = Color.FromArgb(20, 20, 20);
-            stopMrButton.BackgroundColor = Color.FromArgb(20, 20, 20);
-            stopMrButton.BorderColor = Color.FromArgb(5, 222, 5);
-            stopMrButton.BorderThickness = 2;
-            stopMrButton.ClickColor = Color.FromArgb(50, 50, 50);
-            stopMrButton.CornerRadius = 20;
-            stopMrButton.FlatAppearance.BorderSize = 0;
-            stopMrButton.FlatAppearance.MouseDownBackColor = Color.Transparent;
-            stopMrButton.FlatAppearance.MouseOverBackColor = Color.Transparent;
-            stopMrButton.FlatStyle = FlatStyle.Flat;
-            stopMrButton.Font = new Font("Segoe Print", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            stopMrButton.ForeColor = Color.White;
-            stopMrButton.Location = new Point(564, 410);
-            stopMrButton.Name = "stopMrButton";
-            stopMrButton.Size = new Size(148, 53);
-            stopMrButton.TabIndex = 1;
-            stopMrButton.Text = "Stop";
-            stopMrButton.UseVisualStyleBackColor = false;
-            stopMrButton.Click += StopMrButton_Click;
-            // 
-            // restartMrButton
-            // 
-            restartMrButton.BackColor = Color.FromArgb(20, 20, 20);
-            restartMrButton.BackgroundColor = Color.FromArgb(20, 20, 20);
-            restartMrButton.BorderColor = Color.FromArgb(5, 222, 5);
-            restartMrButton.BorderThickness = 2;
-            restartMrButton.ClickColor = Color.FromArgb(50, 50, 50);
-            restartMrButton.CornerRadius = 20;
-            restartMrButton.FlatAppearance.BorderSize = 0;
-            restartMrButton.FlatAppearance.MouseDownBackColor = Color.Transparent;
-            restartMrButton.FlatAppearance.MouseOverBackColor = Color.Transparent;
-            restartMrButton.FlatStyle = FlatStyle.Flat;
-            restartMrButton.Font = new Font("Segoe Print", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            restartMrButton.ForeColor = Color.White;
-            restartMrButton.Location = new Point(410, 410);
-            restartMrButton.Name = "restartMrButton";
-            restartMrButton.Size = new Size(148, 53);
-            restartMrButton.TabIndex = 1;
-            restartMrButton.Text = "Restart";
-            restartMrButton.UseVisualStyleBackColor = false;
-            restartMrButton.Click += RestartMrButton_Click;
-            // 
-            // startMrButton
-            // 
-            startMrButton.BackColor = Color.FromArgb(20, 20, 20);
-            startMrButton.BackgroundColor = Color.FromArgb(20, 20, 20);
-            startMrButton.BorderColor = Color.FromArgb(5, 222, 5);
-            startMrButton.BorderThickness = 2;
-            startMrButton.ClickColor = Color.FromArgb(50, 50, 50);
-            startMrButton.CornerRadius = 20;
-            startMrButton.FlatAppearance.BorderSize = 0;
-            startMrButton.FlatAppearance.MouseDownBackColor = Color.Transparent;
-            startMrButton.FlatAppearance.MouseOverBackColor = Color.Transparent;
-            startMrButton.FlatStyle = FlatStyle.Flat;
-            startMrButton.Font = new Font("Segoe Print", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            startMrButton.ForeColor = Color.White;
-            startMrButton.Location = new Point(718, 410);
-            startMrButton.Name = "startMrButton";
-            startMrButton.Size = new Size(148, 53);
-            startMrButton.TabIndex = 1;
-            startMrButton.Text = "Start";
-            startMrButton.UseVisualStyleBackColor = false;
-            startMrButton.Click += StartMrButton_Click;
-            // 
-            // consoleRichTextBox
-            // 
-            consoleRichTextBox.BackColor = Color.FromArgb(20, 20, 20);
-            consoleRichTextBox.ForeColor = Color.White;
-            consoleRichTextBox.Location = new Point(13, 14);
-            consoleRichTextBox.Name = "consoleRichTextBox";
-            consoleRichTextBox.Size = new Size(853, 356);
-            consoleRichTextBox.TabIndex = 0;
-            consoleRichTextBox.Text = "";
-            // 
-            // customizeMrPanel
-            // 
-            customizeMrPanel.BackColor = Color.FromArgb(20, 20, 20);
-            customizeMrPanel.BorderColor = Color.FromArgb(5, 222, 5);
-            customizeMrPanel.BorderThickness = 2;
-            customizeMrPanel.Controls.Add(loadMrButton);
-            customizeMrPanel.Controls.Add(saveMrButton);
-            customizeMrPanel.Controls.Add(changeFontLabel);
-            customizeMrPanel.Controls.Add(changeColorLabel);
-            customizeMrPanel.Controls.Add(changeFontMrButton);
-            customizeMrPanel.Controls.Add(changeColorMrButton);
-            customizeMrPanel.CornerBorder = 20;
-            customizeMrPanel.Location = new Point(12, 63);
-            customizeMrPanel.Name = "customizeMrPanel";
-            customizeMrPanel.Size = new Size(876, 475);
-            customizeMrPanel.TabIndex = 8;
-            // 
-            // loadMrButton
-            // 
-            loadMrButton.BackColor = Color.FromArgb(20, 20, 20);
-            loadMrButton.BackgroundColor = Color.FromArgb(20, 20, 20);
-            loadMrButton.BorderColor = Color.FromArgb(5, 222, 5);
-            loadMrButton.BorderThickness = 2;
-            loadMrButton.ClickColor = Color.FromArgb(50, 50, 50);
-            loadMrButton.CornerRadius = 20;
-            loadMrButton.FlatAppearance.BorderSize = 0;
-            loadMrButton.FlatAppearance.MouseDownBackColor = Color.Transparent;
-            loadMrButton.FlatAppearance.MouseOverBackColor = Color.Transparent;
-            loadMrButton.FlatStyle = FlatStyle.Flat;
-            loadMrButton.Font = new Font("Segoe Print", 12F, FontStyle.Bold);
-            loadMrButton.ForeColor = Color.White;
-            loadMrButton.Location = new Point(702, 410);
-            loadMrButton.Name = "loadMrButton";
-            loadMrButton.Size = new Size(75, 42);
-            loadMrButton.TabIndex = 3;
-            loadMrButton.Text = "Load";
-            loadMrButton.UseVisualStyleBackColor = false;
-            loadMrButton.Click += LoadMrButton_Click;
-            // 
-            // saveMrButton
-            // 
-            saveMrButton.BackColor = Color.FromArgb(20, 20, 20);
-            saveMrButton.BackgroundColor = Color.FromArgb(20, 20, 20);
-            saveMrButton.BorderColor = Color.FromArgb(5, 222, 5);
-            saveMrButton.BorderThickness = 2;
-            saveMrButton.ClickColor = Color.FromArgb(50, 50, 50);
-            saveMrButton.CornerRadius = 20;
-            saveMrButton.FlatAppearance.BorderSize = 0;
-            saveMrButton.FlatAppearance.MouseDownBackColor = Color.Transparent;
-            saveMrButton.FlatAppearance.MouseOverBackColor = Color.Transparent;
-            saveMrButton.FlatStyle = FlatStyle.Flat;
-            saveMrButton.Font = new Font("Segoe Print", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            saveMrButton.ForeColor = Color.White;
-            saveMrButton.Location = new Point(783, 410);
-            saveMrButton.Name = "saveMrButton";
-            saveMrButton.Size = new Size(75, 42);
-            saveMrButton.TabIndex = 3;
-            saveMrButton.Text = "Save";
-            saveMrButton.UseVisualStyleBackColor = false;
-            saveMrButton.Click += SaveMrButton_Click;
-            // 
-            // changeFontLabel
-            // 
-            changeFontLabel.AutoSize = true;
-            changeFontLabel.BackColor = Color.Transparent;
-            changeFontLabel.Font = new Font("Segoe Print", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            changeFontLabel.ForeColor = Color.White;
-            changeFontLabel.Location = new Point(14, 71);
-            changeFontLabel.Name = "changeFontLabel";
-            changeFontLabel.Size = new Size(337, 28);
-            changeFontLabel.TabIndex = 2;
-            changeFontLabel.Text = "Change App's Font (Not Recommended):";
-            // 
-            // changeColorLabel
-            // 
-            changeColorLabel.AutoSize = true;
-            changeColorLabel.BackColor = Color.Transparent;
-            changeColorLabel.Font = new Font("Segoe Print", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            changeColorLabel.ForeColor = Color.White;
-            changeColorLabel.Location = new Point(13, 17);
-            changeColorLabel.Name = "changeColorLabel";
-            changeColorLabel.Size = new Size(172, 28);
-            changeColorLabel.TabIndex = 2;
-            changeColorLabel.Text = "Change App's Color:";
-            // 
-            // changeFontMrButton
-            // 
-            changeFontMrButton.BackColor = Color.FromArgb(20, 20, 20);
-            changeFontMrButton.BackgroundColor = Color.FromArgb(20, 20, 20);
-            changeFontMrButton.BorderColor = Color.FromArgb(5, 222, 5);
-            changeFontMrButton.BorderThickness = 2;
-            changeFontMrButton.ClickColor = Color.FromArgb(50, 50, 50);
-            changeFontMrButton.CornerRadius = 20;
-            changeFontMrButton.FlatAppearance.BorderSize = 0;
-            changeFontMrButton.FlatAppearance.MouseDownBackColor = Color.Transparent;
-            changeFontMrButton.FlatAppearance.MouseOverBackColor = Color.Transparent;
-            changeFontMrButton.FlatStyle = FlatStyle.Flat;
-            changeFontMrButton.Font = new Font("Segoe Print", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            changeFontMrButton.ForeColor = Color.White;
-            changeFontMrButton.Location = new Point(729, 62);
-            changeFontMrButton.Name = "changeFontMrButton";
-            changeFontMrButton.Size = new Size(129, 46);
-            changeFontMrButton.TabIndex = 1;
-            changeFontMrButton.Text = "Change Font";
-            changeFontMrButton.UseVisualStyleBackColor = false;
-            changeFontMrButton.Click += ChangeFontMrButton_Click;
-            // 
-            // changeColorMrButton
-            // 
-            changeColorMrButton.BackColor = Color.FromArgb(20, 20, 20);
-            changeColorMrButton.BackgroundColor = Color.FromArgb(20, 20, 20);
-            changeColorMrButton.BorderColor = Color.FromArgb(5, 222, 5);
-            changeColorMrButton.BorderThickness = 2;
-            changeColorMrButton.ClickColor = Color.FromArgb(50, 50, 50);
-            changeColorMrButton.CornerRadius = 20;
-            changeColorMrButton.FlatAppearance.BorderSize = 0;
-            changeColorMrButton.FlatAppearance.MouseDownBackColor = Color.Transparent;
-            changeColorMrButton.FlatAppearance.MouseOverBackColor = Color.Transparent;
-            changeColorMrButton.FlatStyle = FlatStyle.Flat;
-            changeColorMrButton.Font = new Font("Segoe Print", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            changeColorMrButton.ForeColor = Color.White;
-            changeColorMrButton.Location = new Point(729, 9);
-            changeColorMrButton.Name = "changeColorMrButton";
-            changeColorMrButton.Size = new Size(129, 46);
-            changeColorMrButton.TabIndex = 0;
-            changeColorMrButton.Text = "Change Color";
-            changeColorMrButton.UseVisualStyleBackColor = false;
-            changeColorMrButton.Click += ChangeColorMrButton_Click;
             // 
             // fileManagerMrPanel
             // 
@@ -860,6 +501,442 @@
             serverStatusUnderMrPanel.Size = new Size(145, 1);
             serverStatusUnderMrPanel.TabIndex = 1;
             // 
+            // customizeMrPanel
+            // 
+            customizeMrPanel.BackColor = Color.FromArgb(20, 20, 20);
+            customizeMrPanel.BorderColor = Color.FromArgb(5, 222, 5);
+            customizeMrPanel.BorderThickness = 2;
+            customizeMrPanel.Controls.Add(loadMrButton);
+            customizeMrPanel.Controls.Add(saveMrButton);
+            customizeMrPanel.Controls.Add(changeFontLabel);
+            customizeMrPanel.Controls.Add(changeAppsHoverCardSLabel);
+            customizeMrPanel.Controls.Add(changeAppsBackgroundColorLabel);
+            customizeMrPanel.Controls.Add(changeBorderColorLabel);
+            customizeMrPanel.Controls.Add(changeFontMrButton);
+            customizeMrPanel.Controls.Add(changeHoverCardColorMrButton);
+            customizeMrPanel.Controls.Add(changeBackgroundColorMrButton);
+            customizeMrPanel.Controls.Add(changeColorMrButton);
+            customizeMrPanel.CornerBorder = 20;
+            customizeMrPanel.Location = new Point(12, 63);
+            customizeMrPanel.Name = "customizeMrPanel";
+            customizeMrPanel.Size = new Size(876, 475);
+            customizeMrPanel.TabIndex = 8;
+            // 
+            // loadMrButton
+            // 
+            loadMrButton.BackColor = Color.FromArgb(20, 20, 20);
+            loadMrButton.BackgroundColor = Color.FromArgb(20, 20, 20);
+            loadMrButton.BorderColor = Color.FromArgb(5, 222, 5);
+            loadMrButton.BorderThickness = 2;
+            loadMrButton.ClickColor = Color.FromArgb(50, 50, 50);
+            loadMrButton.CornerRadius = 20;
+            loadMrButton.FlatAppearance.BorderSize = 0;
+            loadMrButton.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            loadMrButton.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            loadMrButton.FlatStyle = FlatStyle.Flat;
+            loadMrButton.Font = new Font("Segoe Print", 12F, FontStyle.Bold);
+            loadMrButton.ForeColor = Color.White;
+            loadMrButton.Location = new Point(702, 410);
+            loadMrButton.Name = "loadMrButton";
+            loadMrButton.Size = new Size(75, 42);
+            loadMrButton.TabIndex = 3;
+            loadMrButton.Text = "Load";
+            loadMrButton.UseVisualStyleBackColor = false;
+            loadMrButton.Click += LoadMrButton_Click;
+            // 
+            // saveMrButton
+            // 
+            saveMrButton.BackColor = Color.FromArgb(20, 20, 20);
+            saveMrButton.BackgroundColor = Color.FromArgb(20, 20, 20);
+            saveMrButton.BorderColor = Color.FromArgb(5, 222, 5);
+            saveMrButton.BorderThickness = 2;
+            saveMrButton.ClickColor = Color.FromArgb(50, 50, 50);
+            saveMrButton.CornerRadius = 20;
+            saveMrButton.FlatAppearance.BorderSize = 0;
+            saveMrButton.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            saveMrButton.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            saveMrButton.FlatStyle = FlatStyle.Flat;
+            saveMrButton.Font = new Font("Segoe Print", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            saveMrButton.ForeColor = Color.White;
+            saveMrButton.Location = new Point(783, 410);
+            saveMrButton.Name = "saveMrButton";
+            saveMrButton.Size = new Size(75, 42);
+            saveMrButton.TabIndex = 3;
+            saveMrButton.Text = "Save";
+            saveMrButton.UseVisualStyleBackColor = false;
+            saveMrButton.Click += SaveMrButton_Click;
+            // 
+            // changeFontLabel
+            // 
+            changeFontLabel.AutoSize = true;
+            changeFontLabel.BackColor = Color.Transparent;
+            changeFontLabel.Font = new Font("Segoe Print", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            changeFontLabel.ForeColor = Color.White;
+            changeFontLabel.Location = new Point(13, 174);
+            changeFontLabel.Name = "changeFontLabel";
+            changeFontLabel.Size = new Size(337, 28);
+            changeFontLabel.TabIndex = 2;
+            changeFontLabel.Text = "Change App's Font (Not Recommended):";
+            // 
+            // changeAppsHoverCardSLabel
+            // 
+            changeAppsHoverCardSLabel.AutoSize = true;
+            changeAppsHoverCardSLabel.BackColor = Color.Transparent;
+            changeAppsHoverCardSLabel.Font = new Font("Segoe Print", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            changeAppsHoverCardSLabel.ForeColor = Color.White;
+            changeAppsHoverCardSLabel.Location = new Point(13, 122);
+            changeAppsHoverCardSLabel.Name = "changeAppsHoverCardSLabel";
+            changeAppsHoverCardSLabel.Size = new Size(277, 28);
+            changeAppsHoverCardSLabel.TabIndex = 2;
+            changeAppsHoverCardSLabel.Text = "Change App's Hover Cards Color:";
+            // 
+            // changeAppsBackgroundColorLabel
+            // 
+            changeAppsBackgroundColorLabel.AutoSize = true;
+            changeAppsBackgroundColorLabel.BackColor = Color.Transparent;
+            changeAppsBackgroundColorLabel.Font = new Font("Segoe Print", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            changeAppsBackgroundColorLabel.ForeColor = Color.White;
+            changeAppsBackgroundColorLabel.Location = new Point(13, 70);
+            changeAppsBackgroundColorLabel.Name = "changeAppsBackgroundColorLabel";
+            changeAppsBackgroundColorLabel.Size = new Size(274, 28);
+            changeAppsBackgroundColorLabel.TabIndex = 2;
+            changeAppsBackgroundColorLabel.Text = "Change App's Background Color:";
+            // 
+            // changeBorderColorLabel
+            // 
+            changeBorderColorLabel.AutoSize = true;
+            changeBorderColorLabel.BackColor = Color.Transparent;
+            changeBorderColorLabel.Font = new Font("Segoe Print", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            changeBorderColorLabel.ForeColor = Color.White;
+            changeBorderColorLabel.Location = new Point(13, 17);
+            changeBorderColorLabel.Name = "changeBorderColorLabel";
+            changeBorderColorLabel.Size = new Size(234, 28);
+            changeBorderColorLabel.TabIndex = 2;
+            changeBorderColorLabel.Text = "Change App's Border Color:";
+            // 
+            // changeFontMrButton
+            // 
+            changeFontMrButton.BackColor = Color.FromArgb(20, 20, 20);
+            changeFontMrButton.BackgroundColor = Color.FromArgb(20, 20, 20);
+            changeFontMrButton.BorderColor = Color.FromArgb(5, 222, 5);
+            changeFontMrButton.BorderThickness = 2;
+            changeFontMrButton.ClickColor = Color.FromArgb(50, 50, 50);
+            changeFontMrButton.CornerRadius = 20;
+            changeFontMrButton.FlatAppearance.BorderSize = 0;
+            changeFontMrButton.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            changeFontMrButton.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            changeFontMrButton.FlatStyle = FlatStyle.Flat;
+            changeFontMrButton.Font = new Font("Segoe Print", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            changeFontMrButton.ForeColor = Color.White;
+            changeFontMrButton.Location = new Point(729, 165);
+            changeFontMrButton.Name = "changeFontMrButton";
+            changeFontMrButton.Size = new Size(129, 46);
+            changeFontMrButton.TabIndex = 1;
+            changeFontMrButton.Text = "Change Font";
+            changeFontMrButton.UseVisualStyleBackColor = false;
+            changeFontMrButton.Click += ChangeFontMrButton_Click;
+            // 
+            // changeHoverCardColorMrButton
+            // 
+            changeHoverCardColorMrButton.BackColor = Color.FromArgb(20, 20, 20);
+            changeHoverCardColorMrButton.BackgroundColor = Color.FromArgb(20, 20, 20);
+            changeHoverCardColorMrButton.BorderColor = Color.FromArgb(5, 222, 5);
+            changeHoverCardColorMrButton.BorderThickness = 2;
+            changeHoverCardColorMrButton.ClickColor = Color.FromArgb(50, 50, 50);
+            changeHoverCardColorMrButton.CornerRadius = 20;
+            changeHoverCardColorMrButton.FlatAppearance.BorderSize = 0;
+            changeHoverCardColorMrButton.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            changeHoverCardColorMrButton.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            changeHoverCardColorMrButton.FlatStyle = FlatStyle.Flat;
+            changeHoverCardColorMrButton.Font = new Font("Segoe Print", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            changeHoverCardColorMrButton.ForeColor = Color.White;
+            changeHoverCardColorMrButton.Location = new Point(729, 113);
+            changeHoverCardColorMrButton.Name = "changeHoverCardColorMrButton";
+            changeHoverCardColorMrButton.Size = new Size(129, 46);
+            changeHoverCardColorMrButton.TabIndex = 0;
+            changeHoverCardColorMrButton.Text = "Change Color";
+            changeHoverCardColorMrButton.UseVisualStyleBackColor = false;
+            changeHoverCardColorMrButton.Click += ChangeHoverCardColorMrButton_Click;
+            // 
+            // changeBackgroundColorMrButton
+            // 
+            changeBackgroundColorMrButton.BackColor = Color.FromArgb(20, 20, 20);
+            changeBackgroundColorMrButton.BackgroundColor = Color.FromArgb(20, 20, 20);
+            changeBackgroundColorMrButton.BorderColor = Color.FromArgb(5, 222, 5);
+            changeBackgroundColorMrButton.BorderThickness = 2;
+            changeBackgroundColorMrButton.ClickColor = Color.FromArgb(50, 50, 50);
+            changeBackgroundColorMrButton.CornerRadius = 20;
+            changeBackgroundColorMrButton.FlatAppearance.BorderSize = 0;
+            changeBackgroundColorMrButton.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            changeBackgroundColorMrButton.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            changeBackgroundColorMrButton.FlatStyle = FlatStyle.Flat;
+            changeBackgroundColorMrButton.Font = new Font("Segoe Print", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            changeBackgroundColorMrButton.ForeColor = Color.White;
+            changeBackgroundColorMrButton.Location = new Point(729, 61);
+            changeBackgroundColorMrButton.Name = "changeBackgroundColorMrButton";
+            changeBackgroundColorMrButton.Size = new Size(129, 46);
+            changeBackgroundColorMrButton.TabIndex = 0;
+            changeBackgroundColorMrButton.Text = "Change Color";
+            changeBackgroundColorMrButton.UseVisualStyleBackColor = false;
+            changeBackgroundColorMrButton.Click += ChangeBackgroundColorMrButton_Click;
+            // 
+            // changeColorMrButton
+            // 
+            changeColorMrButton.BackColor = Color.FromArgb(20, 20, 20);
+            changeColorMrButton.BackgroundColor = Color.FromArgb(20, 20, 20);
+            changeColorMrButton.BorderColor = Color.FromArgb(5, 222, 5);
+            changeColorMrButton.BorderThickness = 2;
+            changeColorMrButton.ClickColor = Color.FromArgb(50, 50, 50);
+            changeColorMrButton.CornerRadius = 20;
+            changeColorMrButton.FlatAppearance.BorderSize = 0;
+            changeColorMrButton.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            changeColorMrButton.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            changeColorMrButton.FlatStyle = FlatStyle.Flat;
+            changeColorMrButton.Font = new Font("Segoe Print", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            changeColorMrButton.ForeColor = Color.White;
+            changeColorMrButton.Location = new Point(729, 9);
+            changeColorMrButton.Name = "changeColorMrButton";
+            changeColorMrButton.Size = new Size(129, 46);
+            changeColorMrButton.TabIndex = 0;
+            changeColorMrButton.Text = "Change Color";
+            changeColorMrButton.UseVisualStyleBackColor = false;
+            changeColorMrButton.Click += ChangeColorMrButton_Click;
+            // 
+            // consoleMrPanel
+            // 
+            consoleMrPanel.BackColor = Color.FromArgb(20, 20, 20);
+            consoleMrPanel.BorderColor = Color.FromArgb(5, 222, 5);
+            consoleMrPanel.BorderThickness = 2;
+            consoleMrPanel.Controls.Add(statusLabel);
+            consoleMrPanel.Controls.Add(maxRAMMBLabel);
+            consoleMrPanel.Controls.Add(minRAMMBLabel);
+            consoleMrPanel.Controls.Add(dotJarLabel);
+            consoleMrPanel.Controls.Add(maxRAMLabel);
+            consoleMrPanel.Controls.Add(minRAMLabel);
+            consoleMrPanel.Controls.Add(serverNameLabel);
+            consoleMrPanel.Controls.Add(maxRAMTextBox);
+            consoleMrPanel.Controls.Add(minRAMTextBox);
+            consoleMrPanel.Controls.Add(sendPictureBox);
+            consoleMrPanel.Controls.Add(serverFileNameTextBox);
+            consoleMrPanel.Controls.Add(sendCommandTextBox);
+            consoleMrPanel.Controls.Add(stopMrButton);
+            consoleMrPanel.Controls.Add(restartMrButton);
+            consoleMrPanel.Controls.Add(startMrButton);
+            consoleMrPanel.Controls.Add(consoleRichTextBox);
+            consoleMrPanel.CornerBorder = 20;
+            consoleMrPanel.Font = new Font("Segoe Print", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            consoleMrPanel.Location = new Point(12, 63);
+            consoleMrPanel.Name = "consoleMrPanel";
+            consoleMrPanel.Size = new Size(876, 475);
+            consoleMrPanel.TabIndex = 6;
+            // 
+            // statusLabel
+            // 
+            statusLabel.AutoSize = true;
+            statusLabel.ForeColor = Color.Red;
+            statusLabel.Location = new Point(288, 410);
+            statusLabel.Name = "statusLabel";
+            statusLabel.Size = new Size(67, 23);
+            statusLabel.TabIndex = 6;
+            statusLabel.Text = "OFFLINE";
+            // 
+            // maxRAMMBLabel
+            // 
+            maxRAMMBLabel.AutoSize = true;
+            maxRAMMBLabel.ForeColor = Color.White;
+            maxRAMMBLabel.Location = new Point(341, 441);
+            maxRAMMBLabel.Name = "maxRAMMBLabel";
+            maxRAMMBLabel.Size = new Size(32, 23);
+            maxRAMMBLabel.TabIndex = 5;
+            maxRAMMBLabel.Text = "MB";
+            // 
+            // minRAMMBLabel
+            // 
+            minRAMMBLabel.AutoSize = true;
+            minRAMMBLabel.ForeColor = Color.White;
+            minRAMMBLabel.Location = new Point(152, 441);
+            minRAMMBLabel.Name = "minRAMMBLabel";
+            minRAMMBLabel.Size = new Size(32, 23);
+            minRAMMBLabel.TabIndex = 5;
+            minRAMMBLabel.Text = "MB";
+            // 
+            // dotJarLabel
+            // 
+            dotJarLabel.AutoSize = true;
+            dotJarLabel.ForeColor = Color.White;
+            dotJarLabel.Location = new Point(237, 411);
+            dotJarLabel.Name = "dotJarLabel";
+            dotJarLabel.Size = new Size(32, 23);
+            dotJarLabel.TabIndex = 5;
+            dotJarLabel.Text = ".jar";
+            // 
+            // maxRAMLabel
+            // 
+            maxRAMLabel.AutoSize = true;
+            maxRAMLabel.Font = new Font("Segoe Print", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            maxRAMLabel.ForeColor = Color.White;
+            maxRAMLabel.Location = new Point(202, 440);
+            maxRAMLabel.Name = "maxRAMLabel";
+            maxRAMLabel.Size = new Size(77, 23);
+            maxRAMLabel.TabIndex = 4;
+            maxRAMLabel.Text = "Max RAM:";
+            // 
+            // minRAMLabel
+            // 
+            minRAMLabel.AutoSize = true;
+            minRAMLabel.Font = new Font("Segoe Print", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            minRAMLabel.ForeColor = Color.White;
+            minRAMLabel.Location = new Point(13, 440);
+            minRAMLabel.Name = "minRAMLabel";
+            minRAMLabel.Size = new Size(75, 23);
+            minRAMLabel.TabIndex = 4;
+            minRAMLabel.Text = "Min RAM:";
+            // 
+            // serverNameLabel
+            // 
+            serverNameLabel.AutoSize = true;
+            serverNameLabel.BackColor = Color.Transparent;
+            serverNameLabel.Font = new Font("Segoe Print", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            serverNameLabel.ForeColor = Color.White;
+            serverNameLabel.Location = new Point(13, 410);
+            serverNameLabel.Name = "serverNameLabel";
+            serverNameLabel.Size = new Size(100, 23);
+            serverNameLabel.TabIndex = 4;
+            serverNameLabel.Text = "Server Name:";
+            // 
+            // maxRAMTextBox
+            // 
+            maxRAMTextBox.BackColor = Color.FromArgb(20, 20, 20);
+            maxRAMTextBox.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            maxRAMTextBox.ForeColor = Color.White;
+            maxRAMTextBox.Location = new Point(283, 442);
+            maxRAMTextBox.MaxLength = 6;
+            maxRAMTextBox.Name = "maxRAMTextBox";
+            maxRAMTextBox.Size = new Size(55, 23);
+            maxRAMTextBox.TabIndex = 2;
+            maxRAMTextBox.KeyPress += MinRAMAndmaxRAMTextBox_KeyPress;
+            // 
+            // minRAMTextBox
+            // 
+            minRAMTextBox.BackColor = Color.FromArgb(20, 20, 20);
+            minRAMTextBox.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            minRAMTextBox.ForeColor = Color.White;
+            minRAMTextBox.Location = new Point(94, 442);
+            minRAMTextBox.MaxLength = 6;
+            minRAMTextBox.Name = "minRAMTextBox";
+            minRAMTextBox.Size = new Size(55, 23);
+            minRAMTextBox.TabIndex = 2;
+            minRAMTextBox.KeyPress += MinRAMAndmaxRAMTextBox_KeyPress;
+            // 
+            // sendPictureBox
+            // 
+            sendPictureBox.Image = Properties.Resources.paper_plane_30px;
+            sendPictureBox.Location = new Point(842, 376);
+            sendPictureBox.Name = "sendPictureBox";
+            sendPictureBox.Size = new Size(24, 24);
+            sendPictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+            sendPictureBox.TabIndex = 3;
+            sendPictureBox.TabStop = false;
+            sendPictureBox.Click += SendPictureBox_Click;
+            // 
+            // serverFileNameTextBox
+            // 
+            serverFileNameTextBox.BackColor = Color.FromArgb(20, 20, 20);
+            serverFileNameTextBox.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            serverFileNameTextBox.ForeColor = Color.White;
+            serverFileNameTextBox.Location = new Point(119, 412);
+            serverFileNameTextBox.Name = "serverFileNameTextBox";
+            serverFileNameTextBox.Size = new Size(116, 23);
+            serverFileNameTextBox.TabIndex = 2;
+            // 
+            // sendCommandTextBox
+            // 
+            sendCommandTextBox.BackColor = Color.FromArgb(20, 20, 20);
+            sendCommandTextBox.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            sendCommandTextBox.ForeColor = Color.White;
+            sendCommandTextBox.Location = new Point(13, 376);
+            sendCommandTextBox.Name = "sendCommandTextBox";
+            sendCommandTextBox.Size = new Size(823, 23);
+            sendCommandTextBox.TabIndex = 2;
+            sendCommandTextBox.KeyDown += SendCommandTextBox_KeyDown;
+            // 
+            // stopMrButton
+            // 
+            stopMrButton.BackColor = Color.FromArgb(20, 20, 20);
+            stopMrButton.BackgroundColor = Color.FromArgb(20, 20, 20);
+            stopMrButton.BorderColor = Color.FromArgb(5, 222, 5);
+            stopMrButton.BorderThickness = 2;
+            stopMrButton.ClickColor = Color.FromArgb(50, 50, 50);
+            stopMrButton.CornerRadius = 20;
+            stopMrButton.FlatAppearance.BorderSize = 0;
+            stopMrButton.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            stopMrButton.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            stopMrButton.FlatStyle = FlatStyle.Flat;
+            stopMrButton.Font = new Font("Segoe Print", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            stopMrButton.ForeColor = Color.White;
+            stopMrButton.Location = new Point(564, 410);
+            stopMrButton.Name = "stopMrButton";
+            stopMrButton.Size = new Size(148, 53);
+            stopMrButton.TabIndex = 1;
+            stopMrButton.Text = "Stop";
+            stopMrButton.UseVisualStyleBackColor = false;
+            stopMrButton.Click += StopMrButton_Click;
+            // 
+            // restartMrButton
+            // 
+            restartMrButton.BackColor = Color.FromArgb(20, 20, 20);
+            restartMrButton.BackgroundColor = Color.FromArgb(20, 20, 20);
+            restartMrButton.BorderColor = Color.FromArgb(5, 222, 5);
+            restartMrButton.BorderThickness = 2;
+            restartMrButton.ClickColor = Color.FromArgb(50, 50, 50);
+            restartMrButton.CornerRadius = 20;
+            restartMrButton.FlatAppearance.BorderSize = 0;
+            restartMrButton.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            restartMrButton.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            restartMrButton.FlatStyle = FlatStyle.Flat;
+            restartMrButton.Font = new Font("Segoe Print", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            restartMrButton.ForeColor = Color.White;
+            restartMrButton.Location = new Point(410, 410);
+            restartMrButton.Name = "restartMrButton";
+            restartMrButton.Size = new Size(148, 53);
+            restartMrButton.TabIndex = 1;
+            restartMrButton.Text = "Restart";
+            restartMrButton.UseVisualStyleBackColor = false;
+            restartMrButton.Click += RestartMrButton_Click;
+            // 
+            // startMrButton
+            // 
+            startMrButton.BackColor = Color.FromArgb(20, 20, 20);
+            startMrButton.BackgroundColor = Color.FromArgb(20, 20, 20);
+            startMrButton.BorderColor = Color.FromArgb(5, 222, 5);
+            startMrButton.BorderThickness = 2;
+            startMrButton.ClickColor = Color.FromArgb(50, 50, 50);
+            startMrButton.CornerRadius = 20;
+            startMrButton.FlatAppearance.BorderSize = 0;
+            startMrButton.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            startMrButton.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            startMrButton.FlatStyle = FlatStyle.Flat;
+            startMrButton.Font = new Font("Segoe Print", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            startMrButton.ForeColor = Color.White;
+            startMrButton.Location = new Point(718, 410);
+            startMrButton.Name = "startMrButton";
+            startMrButton.Size = new Size(148, 53);
+            startMrButton.TabIndex = 1;
+            startMrButton.Text = "Start";
+            startMrButton.UseVisualStyleBackColor = false;
+            startMrButton.Click += StartMrButton_Click;
+            // 
+            // consoleRichTextBox
+            // 
+            consoleRichTextBox.BackColor = Color.FromArgb(20, 20, 20);
+            consoleRichTextBox.Font = new Font("Consolas", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            consoleRichTextBox.ForeColor = Color.White;
+            consoleRichTextBox.Location = new Point(13, 14);
+            consoleRichTextBox.Name = "consoleRichTextBox";
+            consoleRichTextBox.Size = new Size(853, 356);
+            consoleRichTextBox.TabIndex = 0;
+            consoleRichTextBox.Text = "";
+            // 
             // versionLabel
             // 
             versionLabel.AutoSize = true;
@@ -869,7 +946,7 @@
             versionLabel.Name = "versionLabel";
             versionLabel.Size = new Size(56, 28);
             versionLabel.TabIndex = 9;
-            versionLabel.Text = "2.0.8";
+            versionLabel.Text = "2.0.9";
             // 
             // topMostMrCheckBox
             // 
@@ -1046,11 +1123,6 @@
             Load += MainForm_Load;
             mainMrPanel.ResumeLayout(false);
             mainMrPanel.PerformLayout();
-            consoleMrPanel.ResumeLayout(false);
-            consoleMrPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)sendPictureBox).EndInit();
-            customizeMrPanel.ResumeLayout(false);
-            customizeMrPanel.PerformLayout();
             fileManagerMrPanel.ResumeLayout(false);
             fileListMrPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)changeColorPictureBox).EndInit();
@@ -1069,6 +1141,11 @@
             CPUUsageMrPanel.PerformLayout();
             serverStatusMrPanel.ResumeLayout(false);
             serverStatusMrPanel.PerformLayout();
+            customizeMrPanel.ResumeLayout(false);
+            customizeMrPanel.PerformLayout();
+            consoleMrPanel.ResumeLayout(false);
+            consoleMrPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)sendPictureBox).EndInit();
             navigationBarMrPanel.ResumeLayout(false);
             navigationBarMrPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)minimizePictureBox).EndInit();
@@ -1142,9 +1219,13 @@
         private Label versionLabel;
         private PictureBox minimizePictureBox;
         private Aeat.MrButton changeFontMrButton;
-        private Label changeColorLabel;
+        private Label changeBorderColorLabel;
         private Label changeFontLabel;
         private Aeat.MrButton saveMrButton;
         private Aeat.MrButton loadMrButton;
+        private Label changeAppsBackgroundColorLabel;
+        private Aeat.MrButton changeBackgroundColorMrButton;
+        private Label changeAppsHoverCardSLabel;
+        private Aeat.MrButton changeHoverCardColorMrButton;
     }
 }

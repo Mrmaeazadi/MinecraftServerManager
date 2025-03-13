@@ -21,9 +21,12 @@ public partial class MainForm : Form
     private PerformanceCounter _ramUsageCounter;
     ColorDialog colorDialog = new ColorDialog();
     private MrContextMenuStrip playerContextMenu;
+    private MrContextMenuStrip pluginContextMenu;
     ColorDialog textColorDialog = new ColorDialog();
     private System.Windows.Forms.Timer _updateTimer;
     private List<string> playerList = new List<string>();
+    ColorDialog changeHoverCardColorDialog = new ColorDialog();
+    ColorDialog changeBackgroundColorDialog = new ColorDialog();
 
     public MainForm()
     {
@@ -110,6 +113,14 @@ public partial class MainForm : Form
         }
     }
 
+    private void TeleportPlayer(string fromPlayer, string toPlayer)
+    {
+        if (playerListBox.SelectedItem != null)
+        {
+            SendCommandToServer($"tp {fromPlayer} {toPlayer}");
+        }
+    }
+
     private void GivePlayerGoldenApple()
     {
         if (playerListBox.SelectedItem != null)
@@ -136,6 +147,36 @@ public partial class MainForm : Form
         playerContextMenu.Items.Add("Hunger", null, (s, e) => GiveHunger());
         playerContextMenu.Items.Add("Say Hello", null, (s, e) => SayHello());
         playerContextMenu.Items.Add("Give Them Golder Apple", null, (s, e) => GivePlayerGoldenApple());
+
+        ToolStripMenuItem teleportMenuItem = new ToolStripMenuItem("Teleport");
+        teleportMenuItem.ForeColor = playerContextMenu.ForeColor;
+        teleportMenuItem.BackColor = playerContextMenu.BackColor;
+
+        teleportMenuItem.DropDownOpening += (s, e) => PopulateTeleportMenu(teleportMenuItem);
+        playerContextMenu.Items.Add(teleportMenuItem);
+    }
+
+    private void PopulateTeleportMenu(ToolStripMenuItem teleportMenuItem)
+    {
+        teleportMenuItem.DropDownItems.Clear();
+
+        if (playerListBox.SelectedItem == null)
+            return;
+
+        string selectedPlayer = playerListBox.SelectedItem.ToString();
+
+        foreach (string player in playerList)
+        {
+            if (player != selectedPlayer)
+            {
+                ToolStripMenuItem playerItem = new ToolStripMenuItem(player);
+                playerItem.ForeColor = playerContextMenu.ForeColor;
+                playerItem.BackColor = playerContextMenu.BackColor;
+
+                playerItem.Click += (s, e) => TeleportPlayer(selectedPlayer, player);
+                teleportMenuItem.DropDownItems.Add(playerItem);
+            }
+        }
     }
 
     private void InitializeFileContextMenu()
@@ -238,8 +279,6 @@ public partial class MainForm : Form
                 {
                     if (!string.IsNullOrEmpty(args.Data))
                     {
-                        //AppendTextToConsole(text: args.Data);
-
                         if (statusLabel.Text != "ONLINE")
                         {
                             this.Invoke(new Action(() =>
@@ -250,6 +289,7 @@ public partial class MainForm : Form
                         }
                     }
                 };
+
 
                 _serverProcess.OutputDataReceived += (s, ev) => ProcessServerOutput(ev.Data);
                 _serverProcess.ErrorDataReceived += (s, ev) => AppendTextToConsole(ev.Data);
@@ -816,7 +856,7 @@ public partial class MainForm : Form
         string fullPath = Path.Combine(_currentDirectory, itemText);
 
         bool isDirectory = Directory.Exists(fullPath);
-        Color backColor = isDirectory ? colorDialog.Color : Color.FromArgb(23, 23, 23);
+        Color backColor = isDirectory ? colorDialog.Color : changeHoverCardColorDialog.Color;
 
         e.Graphics.FillRectangle(new SolidBrush(backColor), e.Bounds);
         using (SolidBrush textBrush = new SolidBrush(textColorDialog.Color))
@@ -1447,6 +1487,7 @@ exit
     private void ChangeColorMrButton_Click(object sender, EventArgs e)
     {
         colorDialog.ShowDialog();
+        dashboardMrPanel.BorderColor = colorDialog.Color;
         changeColorMrButton.BorderColor = colorDialog.Color;
         customizeMrPanel.BorderColor = colorDialog.Color;
         mainMrPanel.BorderColor = colorDialog.Color;
@@ -1455,7 +1496,6 @@ exit
         fileListMrPanel.BorderColor = colorDialog.Color;
         fileManagerMrPanel.BorderColor = colorDialog.Color;
         consoleMrPanel.BorderColor = colorDialog.Color;
-        dashboardMrPanel.BorderColor = colorDialog.Color;
         CPUUsageMrPanel.BorderColor = colorDialog.Color;
         memoryUsageMrPanel.BorderColor = colorDialog.Color;
         serverStatusMrPanel.BorderColor = colorDialog.Color;
@@ -1475,9 +1515,11 @@ exit
         changeFontMrButton.BorderColor = colorDialog.Color;
         loadMrButton.BorderColor = colorDialog.Color;
         saveMrButton.BorderColor = colorDialog.Color;
+        changeHoverCardColorMrButton.BorderColor = colorDialog.Color;
+        changeBackgroundColorMrButton.BorderColor = colorDialog.Color;
     }
 
-    private void SetColor()
+    private void SetBorderColor()
     {
         changeColorMrButton.BorderColor = colorDialog.Color;
         customizeMrPanel.BorderColor = colorDialog.Color;
@@ -1507,12 +1549,15 @@ exit
         changeFontMrButton.BorderColor = colorDialog.Color;
         loadMrButton.BorderColor = colorDialog.Color;
         saveMrButton.BorderColor = colorDialog.Color;
+        changeHoverCardColorMrButton.BorderColor = colorDialog.Color;
+        changeBackgroundColorMrButton.BorderColor = colorDialog.Color;
     }
 
     private void ChangeColorPictureBox_Click(object sender, EventArgs e)
     {
         textColorDialog.ShowDialog();
         fileListBox.Invalidate();
+        fileEditorRichTextBox.ForeColor = textColorDialog.Color;
     }
 
     private void PlayerListBox_MouseDown(object sender, MouseEventArgs e)
@@ -1566,13 +1611,17 @@ exit
         //minRAMMBLabel.Font = fontDialog.Font;
         //maxRAMLabel.Font = fontDialog.Font;
         //maxRAMMBLabel.Font = fontDialog.Font;
-        consoleRichTextBox.Font = fontDialog.Font;
-        changeColorLabel.Font = fontDialog.Font;
+        //consoleRichTextBox.Font = fontDialog.Font;
+        changeBorderColorLabel.Font = fontDialog.Font;
         changeFontLabel.Font = fontDialog.Font;
         changeFontMrButton.Font = fontDialog.Font;
         changeColorMrButton.Font = fontDialog.Font;
         saveMrButton.Font = fontDialog.Font;
         loadMrButton.Font = fontDialog.Font;
+        changeAppsBackgroundColorLabel.Font = fontDialog.Font;
+        changeAppsHoverCardSLabel.Font = fontDialog.Font;
+        changeBackgroundColorMrButton.Font = fontDialog.Font;
+        changeHoverCardColorMrButton.Font = fontDialog.Font;
     }
 
     private void SetFont()
@@ -1606,13 +1655,77 @@ exit
         //minRAMMBLabel.Font = fontDialog.Font;
         //maxRAMLabel.Font = fontDialog.Font;
         //maxRAMMBLabel.Font = fontDialog.Font;
-        consoleRichTextBox.Font = fontDialog.Font;
-        changeColorLabel.Font = fontDialog.Font;
+        //consoleRichTextBox.Font = fontDialog.Font;
+        changeBorderColorLabel.Font = fontDialog.Font;
         changeFontLabel.Font = fontDialog.Font;
         changeFontMrButton.Font = fontDialog.Font;
         changeColorMrButton.Font = fontDialog.Font;
         saveMrButton.Font = fontDialog.Font;
         loadMrButton.Font = fontDialog.Font;
+    }
+
+    private void ChangeBackgroundColorMrButton_Click(object sender, EventArgs e)
+    {
+        changeBackgroundColorDialog.ShowDialog();
+        navigationBarMrPanel.BackColor = changeBackgroundColorDialog.Color;
+        dashboardMrPanel.BackColor = changeBackgroundColorDialog.Color;
+
+        topMostMrCheckBox.BackColor = changeBackgroundColorDialog.Color;
+        consoleMrPanel.BackColor = changeBackgroundColorDialog.Color;
+        startMrButton.BackColor = changeBackgroundColorDialog.Color;
+        stopMrButton.BackColor = changeBackgroundColorDialog.Color;
+        restartMrButton.BackColor = changeBackgroundColorDialog.Color;
+        fileManagerMrPanel.BackColor = changeBackgroundColorDialog.Color;
+        customizeMrPanel.BackColor = changeBackgroundColorDialog.Color;
+
+        mainMrPanel.BackColor = changeBackgroundColorDialog.Color;
+    }
+
+    private void SetBackgroundColor()
+    {
+        navigationBarMrPanel.BackColor = changeBackgroundColorDialog.Color;
+        dashboardMrPanel.BackColor = changeBackgroundColorDialog.Color;
+
+        topMostMrCheckBox.BackColor = changeBackgroundColorDialog.Color;
+        consoleMrPanel.BackColor = changeBackgroundColorDialog.Color;
+        startMrButton.BackColor = changeBackgroundColorDialog.Color;
+        stopMrButton.BackColor = changeBackgroundColorDialog.Color;
+        restartMrButton.BackColor = changeBackgroundColorDialog.Color;
+        fileManagerMrPanel.BackColor = changeBackgroundColorDialog.Color;
+        customizeMrPanel.BackColor = changeBackgroundColorDialog.Color;
+
+        mainMrPanel.BackColor = changeBackgroundColorDialog.Color;
+    }
+
+    private void ChangeHoverCardColorMrButton_Click(object sender, EventArgs e)
+    {
+        changeHoverCardColorDialog.ShowDialog();
+        CPUUsageMrPanel.BackColor = changeHoverCardColorDialog.Color;
+        memoryUsageMrPanel.BackColor = changeHoverCardColorDialog.Color;
+        serverUpTimeMrPanel.BackColor = changeHoverCardColorDialog.Color;
+        serverStatusMrPanel.BackColor = changeHoverCardColorDialog.Color;
+
+        playerListBoxMrPanel.BackColor = changeHoverCardColorDialog.Color;
+        playerListBox.BackColor = changeHoverCardColorDialog.Color;
+        fileEditorMrPanel.BackColor = changeHoverCardColorDialog.Color;
+        fileEditorRichTextBox.BackColor = changeHoverCardColorDialog.Color;
+        fileListMrPanel.BackColor = changeHoverCardColorDialog.Color;
+        fileListBox.BackColor = changeHoverCardColorDialog.Color;
+    }
+
+    private void SetHoverCardsColor()
+    {
+        CPUUsageMrPanel.BackColor = changeHoverCardColorDialog.Color;
+        memoryUsageMrPanel.BackColor = changeHoverCardColorDialog.Color;
+        serverUpTimeMrPanel.BackColor = changeHoverCardColorDialog.Color;
+        serverStatusMrPanel.BackColor = changeHoverCardColorDialog.Color;
+
+        playerListBoxMrPanel.BackColor = changeHoverCardColorDialog.Color;
+        playerListBox.BackColor = changeHoverCardColorDialog.Color;
+        fileEditorMrPanel.BackColor = changeHoverCardColorDialog.Color;
+        fileEditorRichTextBox.BackColor = changeHoverCardColorDialog.Color;
+        fileListMrPanel.BackColor = changeHoverCardColorDialog.Color;
+        fileListBox.BackColor = changeHoverCardColorDialog.Color;
     }
 
     private const string filePath = "customize.mcsm";
@@ -1622,15 +1735,17 @@ exit
         string fontName = $"{fontDialog.Font.Name}";
         string fontStyle = $"{fontDialog.Font.Style}";
         string fontSize = $"{fontDialog.Font.Size}";
-        string color = colorDialog.Color.ToArgb().ToString();
+        string borderColor = colorDialog.Color.ToArgb().ToString();
+        string backgroundColor = changeBackgroundColorDialog.Color.ToArgb().ToString();
+        string hoverCardColor = changeHoverCardColorDialog.Color.ToArgb().ToString();
 
-        if (string.IsNullOrEmpty(fontName) || string.IsNullOrEmpty(fontStyle) || string.IsNullOrEmpty(fontSize) || string.IsNullOrEmpty(color))
+        if (string.IsNullOrEmpty(fontName) || string.IsNullOrEmpty(fontStyle) || string.IsNullOrEmpty(fontSize) || string.IsNullOrEmpty(borderColor) || string.IsNullOrEmpty(backgroundColor) || string.IsNullOrEmpty(hoverCardColor))
         {
             MessageBox.Show(text: $"Please Fill All The Required Stuff!", caption: "Error", buttons: MessageBoxButtons.OK, defaultButton: MessageBoxDefaultButton.Button1, icon: MessageBoxIcon.Error);
             return;
         }
 
-        File.WriteAllLines(filePath, new[] { fontName, fontStyle, fontSize, color });
+        File.WriteAllLines(filePath, new[] { fontName, fontStyle, fontSize, borderColor, backgroundColor, hoverCardColor });
         MessageBox.Show(text: "Saved Successfully!", caption: "Success", buttons: MessageBoxButtons.OK, defaultButton: MessageBoxDefaultButton.Button1, icon: MessageBoxIcon.Information);
     }
 
@@ -1664,10 +1779,20 @@ exit
                 fontDialog.Font = font;
                 SetFont();
 
-                int argb = int.Parse(lines[3]);
-                Color color = Color.FromArgb(argb);
-                colorDialog.Color = color;
-                SetColor();
+                int borderColorArgb = int.Parse(lines[3]);
+                Color borderColor = Color.FromArgb(borderColorArgb);
+                colorDialog.Color = borderColor;
+                SetBorderColor();
+
+                int backgroundColorArgb = int.Parse(lines[4]);
+                Color backgroundColor = Color.FromArgb(backgroundColorArgb);
+                changeBackgroundColorDialog.Color = backgroundColor;
+                SetBackgroundColor();
+
+                int hoverCardsColorArgb = int.Parse(lines[5]);
+                Color hoverCardsColor = Color.FromArgb(hoverCardsColorArgb);
+                changeHoverCardColorDialog.Color = hoverCardsColor;
+                SetHoverCardsColor();
             }
             catch (Exception ex)
             {
