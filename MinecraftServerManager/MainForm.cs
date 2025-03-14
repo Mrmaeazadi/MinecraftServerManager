@@ -130,6 +130,17 @@ public partial class MainForm : Form
         }
     }
 
+    private void ChangePlayerGamemode(string mode)
+    {
+        if (playerListBox.SelectedItem != null)
+        {
+            string player = playerListBox.SelectedItem.ToString();
+            string command = $"gamemode {mode.ToLower()} {player}";
+            SendCommandToServer(command);
+            consoleRichTextBox.AppendText($"Changed {player}'s gamemode to {mode}.\n");
+        }
+    }
+
     //***********************************************************************************
     // Right Click Menus
     //***********************************************************************************
@@ -152,11 +163,18 @@ public partial class MainForm : Form
         teleportMenuItem.ForeColor = playerContextMenu.ForeColor;
         teleportMenuItem.BackColor = playerContextMenu.BackColor;
 
-        teleportMenuItem.DropDownOpening += (s, e) => PopulateTeleportMenu(teleportMenuItem);
+        teleportMenuItem.DropDownOpening += (s, e) => TeleportMenu(teleportMenuItem);
         playerContextMenu.Items.Add(teleportMenuItem);
+
+        ToolStripMenuItem gamemodeMenuItem = new ToolStripMenuItem("Gamemode");
+        gamemodeMenuItem.ForeColor = playerContextMenu.ForeColor;
+        gamemodeMenuItem.BackColor = playerContextMenu.BackColor;
+
+        gamemodeMenuItem.DropDownOpening += (s, e) => GamemodeMenu(gamemodeMenuItem);
+        playerContextMenu.Items.Add(gamemodeMenuItem);
     }
 
-    private void PopulateTeleportMenu(ToolStripMenuItem teleportMenuItem)
+    private void TeleportMenu(ToolStripMenuItem teleportMenuItem)
     {
         teleportMenuItem.DropDownItems.Clear();
 
@@ -176,6 +194,23 @@ public partial class MainForm : Form
                 playerItem.Click += (s, e) => TeleportPlayer(selectedPlayer, player);
                 teleportMenuItem.DropDownItems.Add(playerItem);
             }
+        }
+    }
+
+    private void GamemodeMenu(ToolStripMenuItem gamemodeMenuItem)
+    {
+        gamemodeMenuItem.DropDownItems.Clear();
+
+        string[] gameModes = { "Survival", "Creative", "Adventure", "Spectator" };
+
+        foreach (string mode in gameModes)
+        {
+            ToolStripMenuItem modeItem = new ToolStripMenuItem(mode);
+            modeItem.ForeColor = playerContextMenu.ForeColor;
+            modeItem.BackColor = playerContextMenu.BackColor;
+
+            modeItem.Click += (sender, e) => ChangePlayerGamemode(mode);
+            gamemodeMenuItem.DropDownItems.Add(modeItem);
         }
     }
 
@@ -1726,6 +1761,14 @@ exit
         fileEditorRichTextBox.BackColor = changeHoverCardColorDialog.Color;
         fileListMrPanel.BackColor = changeHoverCardColorDialog.Color;
         fileListBox.BackColor = changeHoverCardColorDialog.Color;
+
+        changeFontMrButton.BackgroundColor = changeHoverCardColorDialog.Color;
+        changeHoverCardColorMrButton.BackgroundColor = changeHoverCardColorDialog.Color;
+        changeColorMrButton.BackgroundColor = changeHoverCardColorDialog.Color;
+        changeBackgroundColorMrButton.BackgroundColor = changeHoverCardColorDialog.Color;
+        startMrButton.BackgroundColor = changeHoverCardColorDialog.Color;
+        stopMrButton.BackgroundColor = changeHoverCardColorDialog.Color;
+        restartMrButton.BackgroundColor = changeHoverCardColorDialog.Color;
     }
 
     private const string filePath = "customize.mcsm";
