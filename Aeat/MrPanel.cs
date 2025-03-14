@@ -48,13 +48,20 @@ public class MrPanel : Panel
     public MrPanel()
     {
         this.BackColor = Color.FromArgb(20, 20, 20);
-        this.Resize += (s, e) => SetRoundedRegion();
+        this.Resize += (s, e) =>
+        {
+            SetRoundedRegion();
+            this.Invalidate();
+        };
     }
 
     private void SetRoundedRegion()
     {
         using (GraphicsPath path = GetRoundedRectanglePath(this.ClientRectangle, _cornerRadius, _borderThickness))
         {
+            if (this.Region != null)
+                this.Region.Dispose();
+
             this.Region = new Region(path);
         }
     }
